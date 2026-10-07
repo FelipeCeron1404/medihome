@@ -1,0 +1,9 @@
+out/
+*.class
+.idea/
+*.iml
+.vscode/
+nbproject/private/
+build/
+*.vpp.bak_*
+*.vpp.lck

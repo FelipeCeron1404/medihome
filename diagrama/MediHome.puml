@@ -1,0 +1,137 @@
+@startuml MediHome
+skinparam classAttributeIconSize 0
+
+class EquipoAtencion {
+  - codigo : String
+  - nombre : String
+  - zonaCobertura : String
+  + getCodigo() : String
+  + setCodigo(codigo : String) : void
+  + getNombre() : String
+  + setNombre(nombre : String) : void
+  + getZonaCobertura() : String
+  + setZonaCobertura(zonaCobertura : String) : void
+  + agregarProfesional(profesional : ProfesionalSalud) : void
+  + retirarProfesional(profesional : ProfesionalSalud) : void
+}
+
+class Usuario {
+  - identificacion : String
+  - nombre : String
+  - correo : String
+  + Usuario()
+  + getIdentificacion() : String
+  + setIdentificacion(identificacion : String) : void
+  + getNombre() : String
+  + setNombre(nombre : String) : void
+  + getCorreo() : String
+  + setCorreo(correo : String) : void
+}
+
+interface Notificable {
+  + notificar(mensaje : String) : void
+}
+
+class ProfesionalSalud {
+  - numeroRegistroProfesional : String
+  - especialidad : String
+  + ProfesionalSalud()
+  + getNumeroRegistroProfesional() : String
+  + setNumeroRegistroProfesional(numeroRegistroProfesional : String) : void
+  + getEspecialidad() : String
+  + setEspecialidad(especialidad : String) : void
+  + notificar(mensaje : String) : void
+  + estaDisponible(fecha : LocalDateTime) : boolean
+}
+
+class Paciente {
+  - telefono : String
+  - direccion : String
+  + Paciente()
+  + getTelefono() : String
+  + setTelefono(telefono : String) : void
+  + getDireccion() : String
+  + setDireccion(direccion : String) : void
+  + notificar(mensaje : String) : void
+}
+
+class ServicioDomiciliario {
+  - codigo : String
+  - fechaProgramada : LocalDateTime
+  - direccionAtencion : String
+  - motivo : String
+  - estado : String
+  + getCodigo() : String
+  + setCodigo(codigo : String) : void
+  + getFechaProgramada() : LocalDateTime
+  + setFechaProgramada(fechaProgramada : LocalDateTime) : void
+  + getDireccionAtencion() : String
+  + setDireccionAtencion(direccionAtencion : String) : void
+  + getMotivo() : String
+  + setMotivo(motivo : String) : void
+  + getEstado() : String
+  + setEstado(estado : String) : void
+  + programar(fecha : LocalDateTime) : void
+  + asignarProfesional(profesional : ProfesionalSalud) : void
+  + iniciarAtencion()
+  + finalizar()
+  + cancelar()
+}
+
+class AtencionMedica {
+  - fechaHoraInicio : LocalDateTime
+  - fechaHoraFin : LocalDateTime
+  - observaciones : String
+  - recomendaciones : String
+  + getFechaHoraInicio() : LocalDateTime
+  + setFechaHoraInicio(fechaHoraInicio : LocalDateTime) : void
+  + getFechaHoraFin() : LocalDateTime
+  + setFechaHoraFin(fechaHoraFin : LocalDateTime) : void
+  + getObservaciones() : String
+  + setObservaciones(observaciones : String) : void
+  + getRecomendaciones() : String
+  + setRecomendaciones(recomendaciones : String) : void
+}
+
+class MedicionSignosVitales {
+  - fechaHora : LocalDateTime
+  - temperatura : double
+  - frecuenciaCardiaca : int
+  - presionSistolica : int
+  - presionDiastolica : int
+  - saturacionOxigeno : double
+  + getFechaHora() : LocalDateTime
+  + setFechaHora(fechaHora : LocalDateTime) : void
+  + getTemperatura() : double
+  + setTemperatura(temperatura : double) : void
+  + getFrecuenciaCardiaca() : int
+  + setFrecuenciaCardiaca(frecuenciaCardiaca : int) : void
+  + getPresionSistolica() : int
+  + setPresionSistolica(presionSistolica : int) : void
+  + getPresionDiastolica() : int
+  + setPresionDiastolica(presionDiastolica : int) : void
+  + getSaturacionOxigeno() : double
+  + setSaturacionOxigeno(saturacionOxigeno : double) : void
+  + realizarMedicion() : void
+}
+
+' Herencia
+Usuario <|-- ProfesionalSalud
+Usuario <|-- Paciente
+
+' Realización de la interfaz
+Notificable <|.. ProfesionalSalud
+Notificable <|.. Paciente
+
+' Agregación
+EquipoAtencion "0..1" o-- "0..*" ProfesionalSalud : agrupa
+
+' Asociaciones
+ProfesionalSalud "0..1" -- "0..*" ServicioDomiciliario : atiende
+Paciente "0..1" -- "0..*" ServicioDomiciliario : solicita
+
+' Composiciones
+ServicioDomiciliario "1" *-- "0..1" AtencionMedica : genera
+AtencionMedica "1" *-- "0..*" MedicionSignosVitales : contiene
+
+@enduml

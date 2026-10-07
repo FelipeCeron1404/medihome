@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1">
+<uml:Model xmi:id="model_MediHome" name="MediHome">
+<packagedElement xmi:type="uml:DataType" xmi:id="type_String" name="String"/>
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="type_int" name="int"/>
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="type_double" name="double"/>
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="type_boolean" name="boolean"/>
+<packagedElement xmi:type="uml:DataType" xmi:id="type_LocalDateTime" name="LocalDateTime"/>
+<packagedElement xmi:type="uml:Interface" xmi:id="cls_Notificable" name="Notificable">
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_36" name="notificar" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_37" name="mensaje" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_38" direction="return" type="type_void"/>
+</ownedOperation>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="cls_Usuario" name="Usuario">
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_39" name="identificacion" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_40" name="nombre" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_41" name="correo" visibility="private" type="type_String"/>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_42" name="Usuario" visibility="public">
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_43" name="getIdentificacion" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_44" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_45" name="setIdentificacion" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_46" name="identificacion" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_47" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_48" name="getNombre" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_49" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_50" name="setNombre" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_51" name="nombre" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_52" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_53" name="getCorreo" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_54" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_55" name="setCorreo" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_56" name="correo" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_57" direction="return" type="type_void"/>
+</ownedOperation>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="cls_ProfesionalSalud" name="ProfesionalSalud">
+<generalization xmi:type="uml:Generalization" xmi:id="gen_58" general="cls_Usuario"/>
+<interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="real_59" client="cls_ProfesionalSalud" supplier="cls_Notificable" contract="cls_Notificable" implementingClassifier="cls_ProfesionalSalud"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_60" name="numeroRegistroProfesional" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_61" name="especialidad" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="end_2" type="cls_EquipoAtencion" association="assoc_1"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="id_4" value="0"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="id_5" value="1"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="end_10" type="cls_ServicioDomiciliario" association="assoc_8"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="id_13" value="0"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="id_14" value="-1"/></ownedAttribute>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_62" name="ProfesionalSalud" visibility="public">
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_63" name="getNumeroRegistroProfesional" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_64" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_65" name="setNumeroRegistroProfesional" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_66" name="numeroRegistroProfesional" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_67" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_68" name="getEspecialidad" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_69" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_70" name="setEspecialidad" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_71" name="especialidad" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_72" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_73" name="notificar" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_74" name="mensaje" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_75" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_76" name="estaDisponible" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_77" name="fecha" direction="in" type="type_LocalDateTime"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_78" direction="return" type="type_boolean"/>
+</ownedOperation>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="cls_Paciente" name="Paciente">
+<generalization xmi:type="uml:Generalization" xmi:id="gen_79" general="cls_Usuario"/>
+<interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="real_80" client="cls_Paciente" supplier="cls_Notificable" contract="cls_Notificable" implementingClassifier="cls_Paciente"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_81" name="telefono" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_82" name="direccion" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="end_17" type="cls_ServicioDomiciliario" association="assoc_15"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="id_20" value="0"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="id_21" value="-1"/></ownedAttribute>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_83" name="Paciente" visibility="public">
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_84" name="getTelefono" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_85" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_86" name="setTelefono" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_87" name="telefono" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_88" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_89" name="getDireccion" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_90" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_91" name="setDireccion" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_92" name="direccion" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_93" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_94" name="notificar" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_95" name="mensaje" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_96" direction="return" type="type_void"/>
+</ownedOperation>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="cls_EquipoAtencion" name="EquipoAtencion">
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_97" name="codigo" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_98" name="nombre" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_99" name="zonaCobertura" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="end_3" type="cls_ProfesionalSalud" association="assoc_1" aggregation="shared"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="id_6" value="0"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="id_7" value="-1"/></ownedAttribute>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_100" name="getCodigo" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_101" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_102" name="setCodigo" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_103" name="codigo" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_104" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_105" name="getNombre" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_106" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_107" name="setNombre" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_108" name="nombre" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_109" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_110" name="getZonaCobertura" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_111" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_112" name="setZonaCobertura" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_113" name="zonaCobertura" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_114" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_115" name="agregarProfesional" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_116" name="profesional" direction="in" type="cls_ProfesionalSalud"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_117" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_118" name="retirarProfesional" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_119" name="profesional" direction="in" type="cls_ProfesionalSalud"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_120" direction="return" type="type_void"/>
+</ownedOperation>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="cls_ServicioDomiciliario" name="ServicioDomiciliario">
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_121" name="codigo" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_122" name="fechaProgramada" visibility="private" type="type_LocalDateTime"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_123" name="direccionAtencion" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_124" name="motivo" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_125" name="estado" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="end_9" type="cls_ProfesionalSalud" association="assoc_8"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="id_11" value="0"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="id_12" value="1"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="end_16" type="cls_Paciente" association="assoc_15"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="id_18" value="0"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="id_19" value="1"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="end_24" type="cls_AtencionMedica" association="assoc_22" aggregation="composite"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="id_27" value="0"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="id_28" value="1"/></ownedAttribute>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_126" name="getCodigo" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_127" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_128" name="setCodigo" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_129" name="codigo" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_130" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_131" name="getFechaProgramada" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_132" direction="return" type="type_LocalDateTime"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_133" name="setFechaProgramada" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_134" name="fechaProgramada" direction="in" type="type_LocalDateTime"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_135" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_136" name="getDireccionAtencion" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_137" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_138" name="setDireccionAtencion" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_139" name="direccionAtencion" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_140" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_141" name="getMotivo" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_142" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_143" name="setMotivo" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_144" name="motivo" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_145" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_146" name="getEstado" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_147" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_148" name="setEstado" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_149" name="estado" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_150" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_151" name="programar" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_152" name="fecha" direction="in" type="type_LocalDateTime"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_153" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_154" name="asignarProfesional" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_155" name="profesional" direction="in" type="cls_ProfesionalSalud"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_156" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_157" name="iniciarAtencion" visibility="public">
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_158" name="finalizar" visibility="public">
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_159" name="cancelar" visibility="public">
+</ownedOperation>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="cls_AtencionMedica" name="AtencionMedica">
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_160" name="fechaHoraInicio" visibility="private" type="type_LocalDateTime"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_161" name="fechaHoraFin" visibility="private" type="type_LocalDateTime"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_162" name="observaciones" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_163" name="recomendaciones" visibility="private" type="type_String"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="end_23" type="cls_ServicioDomiciliario" association="assoc_22"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="id_25" value="1"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="id_26" value="1"/></ownedAttribute>
+<ownedAttribute xmi:type="uml:Property" xmi:id="end_31" type="cls_MedicionSignosVitales" association="assoc_29" aggregation="composite"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="id_34" value="0"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="id_35" value="-1"/></ownedAttribute>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_164" name="getFechaHoraInicio" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_165" direction="return" type="type_LocalDateTime"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_166" name="setFechaHoraInicio" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_167" name="fechaHoraInicio" direction="in" type="type_LocalDateTime"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_168" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_169" name="getFechaHoraFin" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_170" direction="return" type="type_LocalDateTime"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_171" name="setFechaHoraFin" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_172" name="fechaHoraFin" direction="in" type="type_LocalDateTime"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_173" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_174" name="getObservaciones" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_175" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_176" name="setObservaciones" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_177" name="observaciones" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_178" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_179" name="getRecomendaciones" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_180" direction="return" type="type_String"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_181" name="setRecomendaciones" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_182" name="recomendaciones" direction="in" type="type_String"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_183" direction="return" type="type_void"/>
+</ownedOperation>
+</packagedElement>
+<packagedElement xmi:type="uml:Class" xmi:id="cls_MedicionSignosVitales" name="MedicionSignosVitales">
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_184" name="fechaHora" visibility="private" type="type_LocalDateTime"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_185" name="temperatura" visibility="private" type="type_double"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_186" name="frecuenciaCardiaca" visibility="private" type="type_int"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_187" name="presionSistolica" visibility="private" type="type_int"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_188" name="presionDiastolica" visibility="private" type="type_int"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="att_189" name="saturacionOxigeno" visibility="private" type="type_double"/>
+<ownedAttribute xmi:type="uml:Property" xmi:id="end_30" type="cls_AtencionMedica" association="assoc_29"><lowerValue xmi:type="uml:LiteralInteger" xmi:id="id_32" value="1"/><upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="id_33" value="1"/></ownedAttribute>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_190" name="getFechaHora" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_191" direction="return" type="type_LocalDateTime"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_192" name="setFechaHora" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_193" name="fechaHora" direction="in" type="type_LocalDateTime"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_194" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_195" name="getTemperatura" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_196" direction="return" type="type_double"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_197" name="setTemperatura" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_198" name="temperatura" direction="in" type="type_double"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_199" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_200" name="getFrecuenciaCardiaca" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_201" direction="return" type="type_int"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_202" name="setFrecuenciaCardiaca" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_203" name="frecuenciaCardiaca" direction="in" type="type_int"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_204" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_205" name="getPresionSistolica" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_206" direction="return" type="type_int"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_207" name="setPresionSistolica" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_208" name="presionSistolica" direction="in" type="type_int"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_209" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_210" name="getPresionDiastolica" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_211" direction="return" type="type_int"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_212" name="setPresionDiastolica" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_213" name="presionDiastolica" direction="in" type="type_int"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_214" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_215" name="getSaturacionOxigeno" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_216" direction="return" type="type_double"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_217" name="setSaturacionOxigeno" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="par_218" name="saturacionOxigeno" direction="in" type="type_double"/>
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_219" direction="return" type="type_void"/>
+</ownedOperation>
+<ownedOperation xmi:type="uml:Operation" xmi:id="op_220" name="realizarMedicion" visibility="public">
+<ownedParameter xmi:type="uml:Parameter" xmi:id="ret_221" direction="return" type="type_void"/>
+</ownedOperation>
+</packagedElement>
+<packagedElement xmi:type="uml:PrimitiveType" xmi:id="type_void" name="void"/>
+<packagedElement xmi:type="uml:Association" xmi:id="assoc_1" name="agrupa" memberEnd="end_2 end_3"/>
+<packagedElement xmi:type="uml:Association" xmi:id="assoc_8" name="atiende" memberEnd="end_9 end_10"/>
+<packagedElement xmi:type="uml:Association" xmi:id="assoc_15" name="solicita" memberEnd="end_16 end_17"/>
+<packagedElement xmi:type="uml:Association" xmi:id="assoc_22" name="genera" memberEnd="end_23 end_24"/>
+<packagedElement xmi:type="uml:Association" xmi:id="assoc_29" name="contiene" memberEnd="end_30 end_31"/>
+</uml:Model>
+</xmi:XMI>
